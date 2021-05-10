@@ -29,6 +29,9 @@ export class UserService {
         const token = response['jwt'];
         localStorage.setItem('currentUser', `${user.email}`);
         localStorage.setItem('token', `${token}`);
+        this.currentUser = user.email;
+        this.searchSubject.next(this.currentUser);
+        this.router.navigate(['/categories']);
         console.log(response, token);
       }, err => console.log(err));
   }
@@ -36,7 +39,8 @@ export class UserService {
   logoutUser(): void {
     localStorage.removeItem('currentUser');
     localStorage.removeItem('token');
-    this.currentUser = '';
+    this.currentUser = null;
+    this.searchSubject.next(this.currentUser);
     this.router.navigate(['/login']);
   }
 

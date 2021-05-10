@@ -6,6 +6,7 @@ import {UserService} from "../services/user/user.service";
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.css']
 })
+
 export class SignupComponent implements OnInit {
   public userName: string;
   public emailAddress: string;

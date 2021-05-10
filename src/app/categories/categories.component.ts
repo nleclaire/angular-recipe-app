@@ -12,6 +12,8 @@ export class CategoriesComponent implements OnInit {
   public categoryName: string;
   public categoryDescription: string;
 
+  public recipeName: string;
+
   constructor(private categoryService: CategoryService) { }
 
   getCategories(): any {
@@ -28,6 +30,20 @@ export class CategoriesComponent implements OnInit {
     this.categoryService.createCategory(newCategory).subscribe(response => {
       this.categories = [...this.categories, response];
     }, err => console.log(err));
+  }
+
+  createRecipe(category): any {
+    console.log('component: ', category, this.recipeName);
+    const newRecipe = {name: this.recipeName};
+    this.categoryService.createRecipe(category, newRecipe).subscribe(response => {
+      console.log(response);
+    });
+  }
+
+  deleteCategory(category): any {
+    this.categoryService.deleteCategory(category).subscribe(response => {
+      console.log(response);
+    });
   }
 
   ngOnInit(): void {

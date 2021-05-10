@@ -10,6 +10,7 @@ import { HomeComponent } from './home/home.component';
 import {FormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import { LogoutComponent } from './logout/logout.component';
+import { CategoryComponent } from './category/category.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { LogoutComponent } from './logout/logout.component';
     CategoriesComponent,
     LoginComponent,
     HomeComponent,
-    LogoutComponent
+    LogoutComponent,
+    CategoryComponent
   ],
   imports: [
     BrowserModule,
